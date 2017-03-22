@@ -1,0 +1,142 @@
+navbar_basic_height = 66px
+navbar_logo_height = 32px
+
+// NavbarBasic
+.navbar-basic
+  background-color #000
+  color #FFF
+  z-index 5
+  height navbar_basic_height
+  +disp_size_down_sp()
+    & > .inner
+      flexbox_menu()
+      flexbox_justy_content_between()
+      & > .logo
+        text-align center
+        a
+          font-size 18px
+      & > .menu-sp-left,& > .menu-sp-right
+        display block!important
+  // Inner
+  & > .inner
+    flexbox_menu()
+    flexbox_justy_content_between()
+    height navbar_basic_height
+    // Logo
+    & > .logo
+      height navbar_basic_height
+      & > a
+        display block
+        height navbar_basic_height
+        line-height navbar_basic_height
+        padding 0 10px
+        background-color #000
+        color #FFF
+        img
+          logo_mar_height2 = navbar_basic_height - navbar_logo_height;
+          logo_mar_height = logo_mar_height2 / 2;
+          height navbar_logo_height
+          margin-top logo_mar_height
+          width auto
+    // Sp left and right
+    & > .menu-sp-left, & > .menu-sp-right
+      display none
+      height 33px!important
+      margin-top 16px
+      width:50px
+      line-height 100%
+      navbar_basic_height2 = navbar_basic_height - 25px
+      navbar_basic_height3 = navbar_basic_height2 / 2
+      margin navbar_basic_height3 0
+      text-align center
+      & > span
+        display block
+        font-size 10px
+      & > i
+        font-size 15px
+    // Menu
+    & > .menu-wrap
+      height navbar_basic_height
+      & > ul.menu
+        height navbar_basic_height
+        flexbox_menu()
+        & > li
+          height navbar_basic_height
+          position static
+          & > a
+            font-size 15px
+            boxsizing-borderbox()
+            display block
+            height navbar_basic_height
+            line-height navbar_basic_height
+            padding 0 15px
+            background-color #000
+            color #FFF
+            & > i
+              margin-left 5px
+          & > ul
+            display none
+            font-size 13px
+            position absolute
+            z-index 6
+            top navbar_basic_height
+            & > li
+              & > a
+                background-color #000
+                color #FFF
+                display block
+                padding 10px
+
+      +disp_size_down_sp()
+        display none
+        position fixed
+        width 100%
+        height 100%
+        z-index 200
+        top 0
+        left 0
+        & > ul.menu
+          z-index 202
+          position absolute
+          width 80%
+          height auto
+          top 50%
+          left 50%
+          -webkit-transform translate(-50%, -50%)
+          transform translate(-50%, -50%)
+          flexbox()
+          flexbox_column()
+          flexbox_nowrap()
+          box-shadow(0 1px 3px alpha(#000,0.3))
+          padding 10px
+          & > li
+            width 100%
+            height auto
+            line-height 100%
+            & > a
+              boxsizing-borderbox()
+              width 100%
+              height auto
+              line-height 100%
+              font-size 16px
+              mar_pad_0()
+              padding 10px 5px
+            & > ul
+              display block
+              position static
+              height auto
+              line-height 100%
+              & > li
+                width 100%
+                height auto
+                line-height 100%
+                padding-left 10px
+                & > a
+                  font-size 14px
+                  boxsizing-borderbox()
+                  width 100%
+                  display block
+                  height auto
+                  line-height 100%
+                  mar_pad_0()
+                  padding 5px 5px
